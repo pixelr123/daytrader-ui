@@ -1,3 +1,3 @@
-import { StyledImg, StyledDiv } from './StyledComp';
+import { StyledImg, Wrapper, StyledFooter } from './StyledComp';
 
-export { StyledImg, StyledDiv };
+export { StyledImg, Wrapper, StyledFooter };
