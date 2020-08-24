@@ -1,0 +1,67 @@
+.trading__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trading__row {
+  width: 100%;
+}
+
+.trading__item {
+  margin-bottom: 100px;
+}
+
+.login__card {
+  width: 400px;
+  height: 400px;
+  margin-top: 50px;
+  border: 1px solid red !important;
+}
+
+.login__badge {
+  padding: 3px;
+  font-size: 14px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.login__form {
+  display: flex;
+  margin-top: 51px;
+  width: 100%;
+}
+
+.login__form .MuiFormControl-root {
+  width: 100%;
+}
+
+.login__password {
+  margin-top: 20px;
+}
+
+.login__password .MuiFormControl-root {
+  width: 100%;
+}
+
+.login__button {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.login__button .MuiButton-root {
+  width: 100%;
+}
+
+.login__footer {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.trading__wrapper {
+  top: 108px !important;
+}
+
+.login__footer {
+  font-weight: 87% !important;
+}

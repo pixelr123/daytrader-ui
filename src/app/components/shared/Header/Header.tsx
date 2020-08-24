@@ -1,14 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyledImg } from "../../StyledComp";
 import { Tabs, Tab } from "@material-ui/core";
 import "./styles.scss";
 import { NavLink } from "react-router-dom";
 
 function Header() {
-  const [value, setValue] = React.useState(0);
+  let url = window.location.pathname
+  let intialTabIndex = [
+    {
+      index: 0,
+      tabName: "/home",
+    },
+    {
+      index: 1,
+      tabName: "/trading-portfolios",
+    },
+    {
+      index: 2,
+      tabName: "/configuration",
+    },
+    {
+      index: 3,
+      tabName: "/primitives",
+    },
+    {
+      index: 4,
+      tabName: "/faq"
+    }
+  ]
+  const [value, setValue] = useState<any>();
 
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-    setValue(newValue);
+  useEffect(() => {
+    intialTabIndex.forEach(tab => {
+      if (url === tab.tabName) {
+        setValue(tab.index);
+      }
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url])
+
+  const handleChange = (event: React.ChangeEvent<{}>, value: number) => {
+    setValue(value);
   };
 
   return (

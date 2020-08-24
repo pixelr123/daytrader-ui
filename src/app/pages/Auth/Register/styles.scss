@@ -1,0 +1,67 @@
+.trading__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trading__row {
+  width: 100%;
+}
+
+.trading__item {
+  margin-bottom: 100px;
+}
+
+.register__card {
+  width: 500px;
+  height: 780px;
+  margin-top: 50px;
+  border: 1px solid red !important;
+}
+
+.register__badge {
+  padding: 3px;
+  font-size: 14px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.register__form {
+  display: flex;
+  margin-top: 51px;
+  width: 100%;
+}
+
+.register__form .MuiFormControl-root {
+  width: 100%;
+}
+
+.register__password {
+  margin-top: 20px;
+}
+
+.register__password .MuiFormControl-root {
+  width: 100%;
+}
+
+.register__button {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.register__button .MuiButton-root {
+  width: 100%;
+}
+
+.register__footer {
+  margin-top: 62px;
+  text-align: center;
+}
+
+.trading__wrapper {
+  top: 108px !important;
+}
+
+.register__footer .small {
+  font-weight: 86% !important;
+}
