@@ -25,6 +25,6 @@ export const StyledFooter = styled.footer`
 `
 
 export const Wrapper = styled.div`
-  position: absolute;
+  position: relative;
   top: 53px;
 `

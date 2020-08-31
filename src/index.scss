@@ -1,6 +1,9 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap.scss";
 
+// Antd
+@import "../node_modules/antd/dist/antd.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +23,7 @@ body {
 }
 
 .cp {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 @-ms-viewport {
@@ -28,11 +31,11 @@ body {
 }
 
 .f-14 {
-  font-size: 14;
+  font-size: 14px !important;
 }
 
 .text-bold {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .container-fluid {
@@ -53,17 +56,21 @@ body {
 }
 
 .flex-0 {
-  flex: 0;
+  flex: 0 !important;
 }
 
 .flex-1 {
-  flex: 1;
+  flex: 1 !important;
 }
 
 .flex-2 {
-  flex: 2;
+  flex: 2 !important;
 }
 
 .flex-3 {
-  flex: 3;
+  flex: 3 !important;
+}
+
+.tlf {
+  table-layout: fixed !important;
 }
