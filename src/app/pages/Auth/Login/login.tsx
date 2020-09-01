@@ -45,7 +45,7 @@ export default function Login() {
             <Card className="login__card" variant="outlined">
               <CardContent>
                 <div className="d-flex flex-row flex-row-reverse">
-                  <div className="flex-column bg-red text-white text-right login__badge">
+                  <div className="flex-column bg-red text-white text-right dayTrader__badge">
                     DayTrader Login
                   </div>
                 </div>

@@ -56,7 +56,7 @@ export default function Register() {
             <Card className="register__card" variant="outlined">
               <CardContent>
                 <div className="d-flex flex-row flex-row-reverse">
-                  <div className="flex-column bg-red text-white text-right register__badge">
+                  <div className="flex-column bg-red text-white text-right dayTrader__badge">
                     DayTrader Registration
                   </div>
                 </div>
