@@ -1,7 +1,7 @@
 export const ConfigurationMapping = [
   {
     id: 1,
-    route: `${window.location.href}/resetTrade`,
+    route: `/configuration/resetTrade`,
     routeName: "Reset DayTrader (to be done before each run)",
     description:
       "Reset the DayTrader runtime to a clean starting point by logging off all users," +
@@ -10,7 +10,7 @@ export const ConfigurationMapping = [
   },
   {
     id: 2,
-    route: `${window.location.href}/config`,
+    route: `/configuration/config`,
     routeName: "Configure DayTrader run-time parameters",
     description:
       "This link provides an interface to set configuration parameters that control " +
@@ -20,7 +20,7 @@ export const ConfigurationMapping = [
   },
   {
     id: 3,
-    route: `${window.location.href}/buildDBTables`,
+    route: `/configuration/buildDBTables`,
     routeName: "(Re)-create  DayTrader Database Tables and Indexes",
     description:
       "This link is used to (a) initially create or (b) drop and re-create the DayTrader tables." +
@@ -32,7 +32,7 @@ export const ConfigurationMapping = [
   },
   {
     id: 4,
-    route: `${window.location.href}/buildDB`,
+    route: `/configuration/buildDB`,
     routeName: "(Re)-populate  DayTrader Database",
     description:
       "This link is used to initially populate or re-populate the DayTrader database with fictitious users" +
@@ -42,14 +42,14 @@ export const ConfigurationMapping = [
   },
   {
     id: 5,
-    route: `${window.location.href}/scenario`,
+    route: `/configuration/scenario`,
     routeName: "Test DayTrader Scenario",
     description:
       'This links pops up a browser to manually step through a DayTrader scenario by hitting "Reload" on your browser',
   },
   {
     id: 6,
-    route: `${window.location.href}/tradeversion`,
+    route: `/configuration/tradeversion`,
     routeName: "DayTrader Version",
     description: "DayTrader application version and change history information",
   },
