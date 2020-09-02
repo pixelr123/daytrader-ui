@@ -4,6 +4,7 @@ import { Primitives } from "../../pages/Primitives";
 import { FAQ } from "../../pages/FAQ";
 import { Login } from "../../pages/Auth/Login";
 import { Register } from "../../pages/Auth/Register";
+import CreateDatabase from "../../pages/Configuration/CreateDatabase/createDatabase";
 
 
 const generateRoute = (path: string, component: Function, exact: boolean, isProctedRoute: boolean) => {
@@ -22,6 +23,7 @@ const ROUTES = [
   generateRoute('/trading-portfolios/login', Login, true, false),
   generateRoute('/trading-portfolios/signup', Register, true, false),
   generateRoute('/configuration', Configuration, true, false),
+  generateRoute('/configuration/buildDBTables', CreateDatabase, true, false),
   generateRoute('/primitives', Primitives, true, false),
   generateRoute('/faq', FAQ, true, false),
 ]

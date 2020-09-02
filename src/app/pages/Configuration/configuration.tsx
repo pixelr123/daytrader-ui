@@ -13,7 +13,7 @@ import './styles.scss';
 
 export default function Configuration() {
   return (
-    <div className="table__wrapper container-fluid">
+    <div className="container-fluid">
       <Wrapper>
         <div className="row">
           <div className="col mt-2">
@@ -24,17 +24,17 @@ export default function Configuration() {
             </div>
             <div className="wrapper mt-1">
               <div className="table__heading">
-                <div className="d-flex flex-row align-items-center border-bottom">
-                  <div className="flex-column text-center text-capitalize f-14 text-bold w-100 p-2 mb-10">
+                <div className="row align-items-center border-bottom">
+                  <div className="col text-center text-capitalize f-14 text-bold w-100 p-2 mb-10">
                     Configuration Utilities
                   </div>
                 </div>
-                <div className="d-flex flex-row align-items-center border-bottom mt-2">
-                  <div className="flex-column text-center f-14 text-bold mb-10 ml-3">
+                <div className="row align-items-center border-bottom mt-2">
+                  <div className="col f-14 text-bold mb-10 ml-1">
                     Benchmark Configuration
                     Tools
                   </div>
-                  <div className="flex-column text-center text-capitalize f-14 text-bold w-100 mr-160">
+                  <div className="col text-capitalize f-14 text-bold mr-160">
                     Description
                   </div>
                 </div>
@@ -44,8 +44,8 @@ export default function Configuration() {
                   <TableBody>
                     {data.map(item => (
                       <TableRow>
-                        <TableCell className="f-14 text-bold config__item">
-                          <a href={item.route}>{item.routeName}</a>
+                        <TableCell className="f-14 config__item">
+                          <a className="configItem__link" href={item.route}>{item.routeName}</a>
                         </TableCell>
                         <TableCell className="">{htmlParser(item.description)}</TableCell>
                       </TableRow>

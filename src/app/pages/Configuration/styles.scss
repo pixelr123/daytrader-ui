@@ -3,7 +3,7 @@
 }
 
 .config__item {
-  width: 174px !important;
+  width: 193px !important;
 }
 
 .mb-10 {
@@ -17,4 +17,13 @@
 .dayTrader__badge {
   padding: 4px !important;
   font-size: 13.5px !important;
+}
+
+.configItem__link:hover {
+  text-decoration: none !important;
+}
+
+.radio-item {
+  display: block;
+  height: 20px;
 }
