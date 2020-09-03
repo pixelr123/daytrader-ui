@@ -17,7 +17,7 @@ function Header() {
     },
     {
       index: 2,
-      tabName: "/configuration",
+      tabName: "/configuration/*",
     },
     {
       index: 3,

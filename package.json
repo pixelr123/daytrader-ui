@@ -9,7 +9,8 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
+    "@types/node": "^14.6.3",
+    "@types/nprogress": "^0.2.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.5",
@@ -18,8 +19,10 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
     "env-cmd": "^10.1.0",
+    "fs": "^0.0.1-security",
     "history": "^5.0.0",
     "html-react-parser": "^0.13.0",
+    "https": "^1.0.0",
     "lodash": "^4.17.19",
     "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
@@ -27,7 +30,7 @@
     "react": "^16.13.1",
     "react-autosize-textarea": "^7.1.0",
     "react-dom": "^16.13.1",
-    "react-hook-form": "^6.3.3",
+    "react-hook-form": "^6.7.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.2",
     "styled-components": "^5.1.1",
@@ -35,7 +38,7 @@
     "typescript-styled-plugin": "^0.15.0"
   },
   "scripts": {
-    "start": "env-cmd -f src/.env.dev npx react-scripts start",
+    "start": "env-cmd -f src/.env.dev  react-scripts start",
     "build": "env-cmd -f src/.env.prod npx react-scripts build",
     "test": "npx react-scripts test",
     "eject": "npx react-scripts eject"

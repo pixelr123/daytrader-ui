@@ -1,169 +1,117 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Card,
   CardContent,
-  FormControl,
-  InputLabel,
-  OutlinedInput,
-  InputAdornment,
-  IconButton,
-  Button,
-  TextField
 } from '@material-ui/core';
 import { Wrapper } from '../../../components/StyledComp';
 import './styles.scss'
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
-interface State {
-  firstname: string;
-  address: string;
-  email: string;
-  username: string;
-  password: string;
-  showPassword: boolean;
-  confirmPassword: string;
-  accoutBalance: string;
-  creditCardNumber: string;
-}
+import { registerMapping as fields } from './registerMapping';
+import { Input, Button } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { useForm } from "react-hook-form";
+import Nprogress from 'nprogress';
+import { authSevice } from '../../../core/http/auth.service';
 
 export default function Register() {
-  const [values, setValues] = React.useState<State>({
-    firstname: '',
-    address: '',
-    email: '',
-    username: '',
-    password: '',
-    showPassword: false,
-    confirmPassword: '',
-    accoutBalance: '10000',
-    creditCardNumber: '123-fake-ccnum-456',
+  Nprogress.configure({
+    showSpinner: false,
+    parent: "#register"
   });
 
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
+  const values: any = {
+    openBalance: '10000',
+    creditCard: '123-fake-ccnum-456'
+  }
 
-  const handleChange = (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
+  const { handleSubmit, register, setValue, errors } = useForm();
+
+  useEffect(() => {
+    fields.forEach(item => {
+      register({ name: item.fieldName });
+    })
+  }, []);
+
+  const onSubmitRegisterForm = async (registerFormValue: any) => {
+    Nprogress.start();
+    if (registerFormValue !== undefined) {
+      const { openBalance, userID, fullName, address, email, creditCard, password } = registerFormValue;
+      let registerData = {
+        "openBalance": openBalance !== undefined ? openBalance : '10000',
+        "profile": {
+          "userID": userID,
+          "fullName": fullName,
+          "address": address,
+          "email": email,
+          "creditCard": creditCard !== undefined ? creditCard : '123-fake-ccnum-456',
+          "password": password
+        },
+        "profileID": userID
+      }
+      const response = await authSevice.register(registerData)
+      console.log(response)
+      if (response.status === 201) {
+        alert("register success");
+        Nprogress.done();
+      }
+    }
+  }
 
   return (
     <div className="trading__container">
       <Wrapper className="trading__wrapper">
         <div className="trading__row">
           <div className="trading__item">
-            <Card className="register__card" variant="outlined">
+            <Card className="register__card" variant="outlined" id="register">
               <CardContent>
-                <div className="d-flex flex-row flex-row-reverse">
-                  <div className="flex-column bg-red text-white text-right dayTrader__badge">
-                    DayTrader Registration
+                <form onSubmit={handleSubmit(onSubmitRegisterForm)}>
+                  <div className="d-flex flex-row flex-row-reverse">
+                    {/* <div className="flex-column bg-red text-white text-right dayTrader__badge">
+                      DayTrader Registration
+                  </div> */}
                   </div>
-                </div>
-                <div className="register__password">
-                  <FormControl variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-username">Firstname</InputLabel>
-                    <OutlinedInput
-                      id="outlined-adornment-password"
-                      type="text"
-                      value={values.firstname}
-                      onChange={handleChange('firstname')}
-                      labelWidth={70}
-                    />
-                  </FormControl>
-                </div>
-                <div className="register__password">
-                  <FormControl variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-username">Address</InputLabel>
-                    <OutlinedInput
-                      id="outlined-adornment-password"
-                      type="text"
-                      value={values.address}
-                      onChange={handleChange('address')}
-                      labelWidth={70}
-                    />
-                  </FormControl>
-                </div>
-                <div className="register__password">
-                  <FormControl variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-username">Email</InputLabel>
-                    <OutlinedInput
-                      id="outlined-adornment-password"
-                      type="text"
-                      value={values.email}
-                      onChange={handleChange('email')}
-                      labelWidth={70}
-                    />
-                  </FormControl>
-                </div>
-                <div className="register__password">
-                  <FormControl variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
-                    <OutlinedInput
-                      id="outlined-adornment-password"
-                      type="text"
-                      value={values.username}
-                      onChange={handleChange('username')}
-                      labelWidth={70}
-                    />
-                  </FormControl>
-                </div>
-                <div className="register__password">
-                  <FormControl variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                    <OutlinedInput
-                      id="outlined-adornment-password"
-                      type={values.showPassword ? 'text' : 'password'}
-                      value={values.password}
-                      onChange={handleChange('password')}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            edge="end"
-                          >
-                            {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                      labelWidth={70}
-                    />
-                  </FormControl>
-                </div>
-                <div className="register__password">
-                  <TextField
-                    label="Confirm password"
-                    id="outlined-start-adornment"
-                    value={values.confirmPassword}
-                    onChange={handleChange('confirmPassword')}
-                    variant="outlined"
-                  />
-                </div>
-                <div className="register__password">
-                  <TextField
-                    label="Account Number"
-                    id="outlined-start-adornment"
-                    value={values.accoutBalance}
-                    onChange={handleChange('accoutBalance')}
-                    InputProps={{
-                      startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                    }}
-                    variant="outlined"
-                  />
-                </div>
-                <div className="register__password">
-                  <TextField
-                    label="Credit Card Number"
-                    id="outlined-start-adornment"
-                    value={values.creditCardNumber}
-                    variant="outlined"
-                    onChange={handleChange('creditCardNumber')}
-                  />
-                </div>
-                <div className="register__button">
-                  <Button variant="outlined">Submit</Button>
-                </div>
+
+                  {fields.map((field, index) => (
+                    <div key={index}>
+                      <div className="mt-2">
+                        {field.placeHolder}
+                      </div>
+                      <div
+                        className="mt-1">
+                        {field.type === 'text' || field.type === 'number'
+                          ? <Input
+                            allowClear
+                            type={field.type}
+                            ref={register}
+                            defaultValue={values[field.fieldName]}
+                            placeholder={field.placeHolder}
+                            onChange={(event) => setValue(field.fieldName, event.target.value)}
+                          />
+                          : <Input.Password
+                            type={field.type}
+                            ref={register}
+                            placeholder={field.placeHolder}
+                            onChange={(event) => setValue(field.fieldName, event.target.value)}
+                            iconRender={visible =>
+                              (visible
+                                ? <EyeTwoTone />
+                                : <EyeInvisibleOutlined />
+                              )}
+                          />
+                        }
+                        {errors[field.fieldName] &&
+                          <div
+                            className="small">
+                            {field.placeHolder} is Required
+                          </div>}
+                      </div>
+                    </div>
+                  ))}
+                  <div className="d-flex flex-row">
+                    <div className="flex-column w-100 mt-4">
+                      <Button htmlType="submit" block>Submit</Button>
+                    </div>
+                  </div>
+                </form>
               </CardContent>
             </Card>
           </div>

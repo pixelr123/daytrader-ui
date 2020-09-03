@@ -8,13 +8,13 @@
   width: 100%;
 }
 
-.trading__item {
-  margin-bottom: 100px;
+.registerCard__height {
+  height: 910px;
 }
 
 .register__card {
   width: 500px;
-  height: 780px;
+  height: 680px;
   margin-top: 50px;
   border: 1px solid red !important;
 }
@@ -26,14 +26,6 @@
 }
 
 .register__form .MuiFormControl-root {
-  width: 100%;
-}
-
-.register__password {
-  margin-top: 20px;
-}
-
-.register__password .MuiFormControl-root {
   width: 100%;
 }
 
