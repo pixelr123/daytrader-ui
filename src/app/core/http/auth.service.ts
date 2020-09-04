@@ -15,8 +15,25 @@ const http = axios.create({
 })
 
 class AuthService {
+
+  header = {
+    'Content-Type': 'text/plain'
+  }
+
   register = (registerFormValue: any) => {
     return http.post("accounts", registerFormValue, { httpsAgent: httpsAgents });
+  }
+
+  login = (userId: any, password: any) => {
+    return http.patch(`login/${userId}`, password,
+      {
+        httpsAgent: httpsAgents,
+        headers: this.header,
+      });
+  }
+
+  getUserId = (email: string) => {
+    return http.get(`accounts/email?email=${email}`);
   }
 }
 

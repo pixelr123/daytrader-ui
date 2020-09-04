@@ -23,7 +23,7 @@ export default function Register() {
     creditCard: '123-fake-ccnum-456'
   }
 
-  const { handleSubmit, register, setValue, errors } = useForm();
+  const { handleSubmit, register, setValue, errors, reset } = useForm();
 
   useEffect(() => {
     fields.forEach(item => {
@@ -54,6 +54,7 @@ export default function Register() {
         Nprogress.done();
       }
     }
+    reset();
   }
 
   return (
@@ -65,9 +66,9 @@ export default function Register() {
               <CardContent>
                 <form onSubmit={handleSubmit(onSubmitRegisterForm)}>
                   <div className="d-flex flex-row flex-row-reverse">
-                    {/* <div className="flex-column bg-red text-white text-right dayTrader__badge">
+                    <div className="flex-column bg-red text-white text-right dayTrader__badge">
                       DayTrader Registration
-                  </div> */}
+                  </div>
                   </div>
 
                   {fields.map((field, index) => (
